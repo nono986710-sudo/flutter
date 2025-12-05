@@ -1,34 +1,36 @@
 name: main_ci_check
-
-on:
-  push:
-    branches: [ main ]      # Run whenever you push to main
+on: 
+  push: 
+        branches:
+          - main
   pull_request:
-    branches: [ main ]      # Run on PRs to main
+        branches:
+          - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Use a Linux server
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v4
-        # 🪄 Grab your repo so the workflow can see your code
 
-      - name: Set up Flutter
+      - name: setup flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-        # 🧰 Install Flutter (like magic cloud SDK)
 
-      - name: Install dependencies
+      - name: install dependencies
         run: flutter pub get
-        # 📦 Grab all packages your app needs
 
-      - name: Analyze code
+      - name: analyze code
         run: flutter analyze
-        # 🔍 Lint check to catch bad code
-
+        
       - name: Run tests
         run: flutter test
-        # 🧪 Run all tests to make sure nothing is broken
+      
+
+
+
+  
+   
