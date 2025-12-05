@@ -22,12 +22,15 @@ jobs:
 
       - name: install dependencies
         run: flutter pub get
+        working-directory: my_app
 
       - name: analyze code
         run: flutter analyze
-        
+        working-directory: my_app
+
       - name: Run tests
         run: flutter test
+        working-directory: my_app
       
 
 
