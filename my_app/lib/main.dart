@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'This is main branch test 4'),
+      home: const MyHomePage(title: 'Testing branch prediction rules '),
     );
   }
 }
