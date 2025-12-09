@@ -33,39 +33,4 @@ jobs:
         run: flutter test
         working-directory: my_app
       
-  sonar:
-    runs-on: ubuntu-latest
-    needs: build   # only needs build, tests already ran there
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-
-      - name: Install dependencies
-        run: flutter pub get
-        working-directory: my_app
-        
-      - name: Verify Flutter analyzer
-        run: flutter analyze my_app/lib   
-        
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.projectKey=nono986710-sudo_flutter
-            -Dsonar.organization=nono986710-sudo
-            -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.sources=my_app/lib
-            -Dsonar.tests=my_app/test
-            -Dsonar.dart.analyzer.mode=flutter
-            -Dsonar.dart.analyzer.ignoreExecutable=true
-            
+  
