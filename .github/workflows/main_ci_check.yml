@@ -51,7 +51,10 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
         working-directory: my_app
-
+        
+      - name: Verify Flutter analyzer
+        run: flutter analyze my_app/lib   
+        
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         env:
@@ -61,8 +64,8 @@ jobs:
             -Dsonar.projectKey=nono986710-sudo_flutter
             -Dsonar.organization=nono986710-sudo
             -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.dart.analyzer.mode=flutter
-            -Dsonar.dart.analyzer.ignoreExecutable=true
             -Dsonar.sources=my_app/lib
             -Dsonar.tests=my_app/test
+            -Dsonar.dart.analyzer.mode=flutter
+            -Dsonar.dart.analyzer.ignoreExecutable=true
             
