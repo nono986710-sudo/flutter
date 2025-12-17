@@ -32,5 +32,8 @@ jobs:
       - name: Run tests
         run: flutter test
         working-directory: my_app
-      
-  
+
+      - name: Flutter Test Report
+        uses: ueki-tomohiro/flutter-test-action@v1.0.3
+        with:
+          token: ${{ github.token }}
